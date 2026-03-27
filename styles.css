@@ -1087,6 +1087,84 @@ body {
     }
 }
 
+/* ==========================================
+   ANTI-GRAVITY EFFECTS
+   ========================================== */
+
+/* Canvas layer sits behind content */
+.antigravity-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure hero/page-header content sits above the canvas */
+.hero .container,
+.page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Gentle levitation — bobs up and down */
+@keyframes ag-levitate {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-10px); }
+}
+
+/* Offset variant so not all cards move in sync */
+@keyframes ag-levitate-alt {
+    0%, 100% { transform: translateY(-4px); }
+    50%       { transform: translateY(6px); }
+}
+
+.ag-levitate {
+    animation: ag-levitate 5.5s ease-in-out infinite;
+    will-change: transform;
+}
+
+.ag-levitate-alt {
+    animation: ag-levitate-alt 6.5s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Pause levitation when user hovers (so it doesn't fight their cursor) */
+.ag-levitate:hover,
+.ag-levitate-alt:hover {
+    animation-play-state: paused;
+    transform: translateY(-6px);
+    transition: transform 0.3s ease-out;
+}
+
+/* Glow pulse on encrypted text reveal (CSS class, cheaper than JS textShadow anim) */
+@keyframes ag-glow-pulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(0, 255, 136, 0.5); }
+    50%       { text-shadow: 0 0 40px rgba(0, 255, 136, 0.9), 0 0 60px rgba(0, 255, 136, 0.4); }
+}
+
+.ag-glow-pulse {
+    animation: ag-glow-pulse 1s ease-in-out;
+}
+
+/* Tooltip highlight via CSS class (avoids JS backgroundColor animation) */
+.tooltip-highlight {
+    background-color: rgba(245, 158, 11, 0.12) !important;
+    transition: background-color 0.15s ease-out;
+}
+
+/* Reduce levitation on small screens for perf */
+@media (max-width: 768px) {
+    .ag-levitate {
+        animation-duration: 7s;
+    }
+    .ag-levitate-alt {
+        animation-duration: 8s;
+    }
+}
+
 /* Print Styles */
 @media print {
     .header,

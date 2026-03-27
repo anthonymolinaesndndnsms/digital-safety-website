@@ -182,30 +182,13 @@
             }
             
             activeTooltip = element;
-            element.classList.add('tooltip-active');
-
-            if (window.anime) {
-                anime({
-                    targets: element,
-                    backgroundColor: 'rgba(245, 158, 11, 0.1)',
-                    duration: 200,
-                    easing: 'easeOutQuart'
-                });
-            }
+            element.classList.add('tooltip-active', 'tooltip-highlight');
         }
 
         function hideTooltip() {
             tooltipTimer = setTimeout(function() {
                 if (activeTooltip) {
-                    activeTooltip.classList.remove('tooltip-active');
-                    if (window.anime) {
-                        anime({
-                            targets: activeTooltip,
-                            backgroundColor: 'transparent',
-                            duration: 200,
-                            easing: 'easeOutQuart'
-                        });
-                    }
+                    activeTooltip.classList.remove('tooltip-active', 'tooltip-highlight');
                     activeTooltip = null;
                 }
             }, 100);
@@ -467,19 +450,11 @@
                     element.textContent = originalText;
                 }
 
-                // Add glowing pulse effect
-                if (window.anime) {
-                    anime({
-                        targets: element,
-                        textShadow: [
-                            '0 0 20px rgba(0, 255, 136, 0.5)',
-                            '0 0 40px rgba(0, 255, 136, 0.8)',
-                            '0 0 20px rgba(0, 255, 136, 0.5)'
-                        ],
-                        duration: 1000,
-                        easing: 'easeInOutQuad'
-                    });
-                }
+                // Add glowing pulse effect via CSS class (avoids costly textShadow repaint)
+                element.classList.add('ag-glow-pulse');
+                element.addEventListener('animationend', function () {
+                    element.classList.remove('ag-glow-pulse');
+                }, { once: true });
             }
 
             iterations += 1/2; // Faster decryption
