@@ -1,5 +1,5 @@
-// Anti-gravity effects: floating particles, card levitation, mouse parallax
-// Implements the "anti-gravity" design theme — elements float and drift upward
+// Anti-gravity effects: floating particles + hero parallax
+// Card levitation removed — it conflicts with GSAP scroll reveals
 (function () {
     'use strict';
 
@@ -7,11 +7,10 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         initFloatingParticles();
-        initCardLevitation();
         initHeroParallax();
+        initHeroIconsFloat();
     });
 
-    // Canvas-based floating cyber particles that drift upward (anti-gravity)
     function initFloatingParticles() {
         var sections = [
             document.querySelector('.hero'),
@@ -29,35 +28,36 @@
             var ctx = canvas.getContext('2d');
             var particles = [];
             var animFrame;
-            var symbols = ['◈', '⬡', '◇', '01', '10', '11', '⊕', '⊗', '△', '◻', '⬢', '00'];
-            var colors = ['#00FF88', '#1E90FF', '#FF0066'];
             var isRunning = true;
+            var symbols = ['◈', '⬡', '◇', '01', '10', '11', '⊕', '△', '◻', '00', '1010', '0101'];
+            var colors = ['#00FF88', '#1E90FF', '#FF0066'];
+            var W = 0, H = 0;
 
             function resize() {
-                canvas.width = section.offsetWidth;
-                canvas.height = section.offsetHeight;
+                W = canvas.width = section.offsetWidth;
+                H = canvas.height = section.offsetHeight;
             }
 
             function spawn() {
                 return {
-                    x: Math.random() * canvas.width,
-                    y: canvas.height + 15,
-                    vx: (Math.random() - 0.5) * 0.35,
-                    vy: -(0.35 + Math.random() * 0.55),
-                    size: 9 + Math.random() * 10,
+                    x: Math.random() * W,
+                    y: H + 15,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: -(0.3 + Math.random() * 0.5),
+                    size: 8 + Math.random() * 9,
                     symbol: symbols[Math.floor(Math.random() * symbols.length)],
                     color: colors[Math.floor(Math.random() * colors.length)],
                     life: 0,
-                    maxLife: 270 + Math.random() * 200,
-                    maxOpacity: 0.10 + Math.random() * 0.17
+                    maxLife: 260 + Math.random() * 200,
+                    maxOpacity: 0.09 + Math.random() * 0.16
                 };
             }
 
             function tick() {
                 if (!isRunning) return;
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.clearRect(0, 0, W, H);
 
-                if (particles.length < 22 && Math.random() < 0.065) {
+                if (particles.length < 20 && Math.random() < 0.055) {
                     particles.push(spawn());
                 }
 
@@ -67,13 +67,10 @@
                     p.life++;
                     p.x += p.vx;
                     p.y += p.vy;
-
-                    var ratio = p.life / p.maxLife;
-                    var alpha;
-                    if (ratio < 0.15) alpha = (ratio / 0.15) * p.maxOpacity;
-                    else if (ratio > 0.75) alpha = ((1 - ratio) / 0.25) * p.maxOpacity;
-                    else alpha = p.maxOpacity;
-
+                    var r = p.life / p.maxLife;
+                    var alpha = r < 0.15 ? (r / 0.15) * p.maxOpacity
+                              : r > 0.75 ? ((1 - r) / 0.25) * p.maxOpacity
+                              : p.maxOpacity;
                     ctx.save();
                     ctx.globalAlpha = alpha;
                     ctx.font = p.size + 'px "Source Code Pro", monospace';
@@ -86,10 +83,13 @@
             }
 
             resize();
-            window.addEventListener('resize', resize, { passive: true });
+            var resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(resize, 150);
+            }, { passive: true });
             tick();
 
-            // Pause when tab hidden to save resources
             document.addEventListener('visibilitychange', function () {
                 if (document.hidden) {
                     isRunning = false;
@@ -102,36 +102,12 @@
         });
     }
 
-    // Add floating levitation CSS animation to cards with staggered delays
-    function initCardLevitation() {
-        var selectors = [
-            '.feature-card',
-            '.principle-card',
-            '.security-item',
-            '.content-section',
-            '.disclaimer-item'
-        ];
-
-        var all = [];
-        selectors.forEach(function (sel) {
-            all = all.concat(Array.prototype.slice.call(document.querySelectorAll(sel)));
-        });
-
-        all.forEach(function (el, i) {
-            el.classList.add(i % 2 === 0 ? 'ag-levitate' : 'ag-levitate-alt');
-            el.style.animationDelay = ((i * 0.38) % 5) + 's';
-        });
-
-        // Threat cards get their own float style
-        document.querySelectorAll('.threat-card').forEach(function (card, i) {
-            card.classList.add('ag-levitate');
-            card.style.animationDelay = ((i * 0.5) % 5) + 's';
-        });
-
-        // Step cards
-        document.querySelectorAll('.step-card, .resource-card').forEach(function (card, i) {
-            card.classList.add(i % 2 === 0 ? 'ag-levitate' : 'ag-levitate-alt');
-            card.style.animationDelay = ((i * 0.3) % 5) + 's';
+    // Float only the hero security icons (they're above the fold, no conflict)
+    function initHeroIconsFloat() {
+        var items = document.querySelectorAll('.security-item');
+        items.forEach(function (el, i) {
+            el.style.animationDelay = (i * 0.55) + 's';
+            el.classList.add('ag-levitate');
         });
     }
 
@@ -146,24 +122,22 @@
 
         hero.addEventListener('mousemove', function (e) {
             var r = hero.getBoundingClientRect();
-            tx = ((e.clientX - r.left) / r.width - 0.5) * 26;
-            ty = ((e.clientY - r.top) / r.height - 0.5) * 14;
+            tx = ((e.clientX - r.left) / r.width - 0.5) * 24;
+            ty = ((e.clientY - r.top) / r.height - 0.5) * 12;
             if (!rafId) rafId = requestAnimationFrame(step);
         }, { passive: true });
 
         hero.addEventListener('mouseleave', function () {
-            tx = 0;
-            ty = 0;
+            tx = 0; ty = 0;
             if (!rafId) rafId = requestAnimationFrame(step);
         }, { passive: true });
 
         function step() {
             cx += (tx - cx) * 0.07;
             cy += (ty - cy) * 0.07;
-            visual.style.transform = 'translate(' + cx.toFixed(2) + 'px, ' + cy.toFixed(2) + 'px)';
+            visual.style.transform = 'translate(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px)';
             rafId = (Math.abs(tx - cx) > 0.05 || Math.abs(ty - cy) > 0.05)
-                ? requestAnimationFrame(step)
-                : null;
+                ? requestAnimationFrame(step) : null;
         }
     }
 

@@ -1428,3 +1428,176 @@ body {
         border: 2px solid var(--primary-color);
     }
 }
+
+/* ==========================================
+   DESIGN REFRESH — Less generic, more human
+   ========================================== */
+
+/* --- Feature cards: top-accent + corner bracket instead of full neon glow --- */
+.feature-card {
+    position: relative !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-top: 2px solid var(--primary-color) !important;
+    background: linear-gradient(160deg, rgba(0, 255, 136, 0.04) 0%, var(--bg-secondary) 55%) !important;
+    box-shadow: none !important;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+/* Corner bracket accent */
+.feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+    border-bottom: 1.5px solid var(--primary-color);
+    border-right: 1.5px solid var(--primary-color);
+    opacity: 0.25;
+    transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+    pointer-events: none;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px) scale(1.01) !important;
+    box-shadow: 0 28px 56px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 136, 0.12) !important;
+    border-top-color: var(--secondary-color) !important;
+    border-color: rgba(30, 144, 255, 0.18) !important;
+    background: linear-gradient(160deg, rgba(30, 144, 255, 0.05) 0%, rgba(0, 255, 136, 0.03) 100%) !important;
+}
+
+.feature-card:hover::after {
+    opacity: 0.7;
+    width: 18px;
+    height: 18px;
+    border-bottom-color: var(--secondary-color);
+    border-right-color: var(--secondary-color);
+}
+
+/* Feature icons: outlined instead of solid fill — more refined */
+.feature-icon {
+    background: transparent !important;
+    border: 1px solid rgba(0, 255, 136, 0.25) !important;
+    color: var(--primary-color) !important;
+    box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.05) !important;
+}
+
+.feature-card:hover .feature-icon {
+    border-color: var(--secondary-color) !important;
+    color: var(--secondary-color) !important;
+    box-shadow: inset 0 0 20px rgba(30, 144, 255, 0.08), 0 0 15px rgba(30, 144, 255, 0.1) !important;
+}
+
+/* Section title accent line */
+.section-title.cyber-highlight {
+    display: inline-block;
+}
+
+.section-title.cyber-highlight::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    margin: 10px auto 0;
+    opacity: 0.7;
+}
+
+/* Security items in hero: better glass look */
+.security-item {
+    background: rgba(10, 10, 10, 0.7) !important;
+    border: 1px solid rgba(0, 255, 136, 0.18) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+.security-item:hover {
+    border-color: rgba(0, 255, 136, 0.5) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 255, 136, 0.1) !important;
+}
+
+/* Reduce heading text-shadow overuse — only hero title keeps the strong glow */
+.feature-title,
+.section-title,
+.page-title,
+.page-description {
+    text-shadow: none !important;
+}
+
+.hero-title {
+    text-shadow: 0 0 40px rgba(0, 255, 136, 0.4) !important;
+}
+
+/* Footer: reduce the overwhelming top glow */
+.footer {
+    box-shadow: none !important;
+    border-top: 1px solid rgba(0, 255, 136, 0.2) !important;
+}
+
+/* Buttons: sharper, less "floating" glow */
+.btn-primary {
+    box-shadow: 0 4px 16px rgba(0, 255, 136, 0.2) !important;
+}
+.btn-primary:hover {
+    box-shadow: 0 8px 28px rgba(0, 255, 136, 0.35) !important;
+}
+.btn-secondary {
+    box-shadow: none !important;
+}
+.btn-secondary:hover {
+    box-shadow: 0 4px 20px rgba(30, 144, 255, 0.2) !important;
+}
+
+/* Header border: slightly subtler */
+.header {
+    border-bottom: 1px solid rgba(0, 255, 136, 0.25) !important;
+    box-shadow: 0 1px 20px rgba(0, 255, 136, 0.08) !important;
+}
+
+/* Body: add subtle scanline texture for depth */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Quick demo section: fix the crazy padding */
+.quick-demo {
+    padding: var(--space-20) 0 !important;
+}
+
+.email-demo {
+    margin: var(--space-8) auto !important;
+}
+
+/* Cyber divider: slightly less bright */
+.cyber-divider {
+    opacity: 0.6;
+}
+
+/* Page header backgrounds: more varied */
+.page-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--primary-color) 30%, var(--secondary-color) 70%, transparent 100%);
+    opacity: 0.5;
+}
+}

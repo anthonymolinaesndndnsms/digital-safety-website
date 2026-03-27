@@ -6,6 +6,7 @@
 
     // Wait for DOM content to load
     document.addEventListener('DOMContentLoaded', function() {
+        initializeSmoothScroll();
         initializeNavigation();
         initializeBackToTop();
         initializeScrollAnimations();
@@ -93,14 +94,8 @@
             // Smooth scroll to top
             backToTopBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-
-                if (window.anime) {
-                    anime({
-                        targets: document.documentElement,
-                        scrollTop: 0,
-                        duration: 800,
-                        easing: 'easeOutQuart'
-                    });
+                if (window._lenisInstance) {
+                    window._lenisInstance.scrollTo(0, { duration: 1.2 });
                 } else {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
@@ -123,48 +118,115 @@
         }
     }
 
-    // Scroll-based animations using Intersection Observer
+    // Lenis smooth scroll — must run before ScrollTrigger
+    function initializeSmoothScroll() {
+        if (!window.Lenis) return;
+
+        var lenis = new Lenis({
+            duration: 1.1,
+            easing: function(t) { return 1 - Math.pow(1 - t, 4); },
+            smoothTouch: false,
+            syncTouch: false
+        });
+
+        // Use gsap ticker so Lenis + ScrollTrigger stay in sync
+        if (window.gsap) {
+            gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
+            gsap.ticker.lagSmoothing(0);
+            if (window.ScrollTrigger) {
+                lenis.on('scroll', ScrollTrigger.update);
+            }
+        } else {
+            // Fallback raf loop without gsap
+            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+            requestAnimationFrame(raf);
+        }
+
+        // Make back-to-top use Lenis
+        window._lenisInstance = lenis;
+    }
+
+    // Scroll-based animations using GSAP ScrollTrigger
     function initializeScrollAnimations() {
-        if (!window.anime) return;
+        if (window.gsap && window.ScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
 
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+            // --- Pre-hide everything FIRST (synchronous, before any paint) ---
+            var allReveal = document.querySelectorAll(
+                '.feature-card, .principle-card, .content-section, .disclaimer-item, ' +
+                '.threat-card, .step-card, .resource-card'
+            );
+            var allTitles = document.querySelectorAll(
+                '.section-title, .page-title, .page-description, .section-description'
+            );
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    animateElement(entry.target);
-                    observer.unobserve(entry.target);
+            gsap.set(allReveal, { opacity: 0, y: 38, force3D: true });
+            gsap.set(allTitles, { opacity: 0, y: 18, force3D: true });
+
+            // --- Animate each card individually when it enters the viewport ---
+            allReveal.forEach(function(el, i) {
+                // Group siblings for stagger: delay based on position among siblings
+                var siblings = el.parentElement ? Array.from(el.parentElement.children) : [];
+                var sibIndex = siblings.indexOf(el);
+
+                gsap.to(el, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.65,
+                    ease: 'power2.out',
+                    delay: sibIndex * 0.07,
+                    force3D: true,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 92%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+
+            // --- Titles slide in ---
+            allTitles.forEach(function(el) {
+                gsap.to(el, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.55,
+                    ease: 'power2.out',
+                    force3D: true,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 93%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+
+            return;
+        }
+
+        // CSS-only fallback (no GSAP): pre-hide with inline style then reveal via observer
+        var toReveal = document.querySelectorAll(
+            '.feature-card,.section-title,.principle-card,.threat-card,.step-card,.resource-card'
+        );
+        toReveal.forEach(function(el) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(28px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        });
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    e.target.style.opacity = '1';
+                    e.target.style.transform = 'none';
+                    obs.unobserve(e.target);
                 }
             });
-        }, observerOptions);
-
-        // Observe elements for animation
-        const animatableElements = document.querySelectorAll('.feature-card, .security-item, .hero-content, .section-title');
-        animatableElements.forEach(function(element) {
-            observer.observe(element);
-        });
+        }, { threshold: 0.08 });
+        toReveal.forEach(function(el) { obs.observe(el); });
     }
 
     // Animate individual elements
     function animateElement(element) {
-        if (!window.anime) return;
-
-        // Add initial state
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-
-        // Animate in
-        anime({
-            targets: element,
-            opacity: [0, 1],
-            translateY: [30, 0],
-            duration: 600,
-            delay: anime.stagger(100, {start: 100}),
-            easing: 'easeOutQuart'
-        });
+        // Handled by GSAP ScrollTrigger in initializeScrollAnimations
     }
 
     // Enhanced tooltips for email demo - optimized with event delegation
@@ -376,23 +438,23 @@
 
     // Initialize hero animation
     function initializeHeroAnimation() {
-        const heroTitle = document.getElementById('heroTitle');
+        var heroTitle = document.getElementById('heroTitle');
         if (!heroTitle) return;
 
-        // Simple fade-in animation instead of encryption
-        if (window.anime) {
-            heroTitle.style.opacity = '0';
-            heroTitle.style.transform = 'translateY(20px)';
-
-            setTimeout(() => {
-                anime({
-                    targets: heroTitle,
-                    opacity: [0, 1],
-                    translateY: [20, 0],
-                    duration: 800,
-                    easing: 'easeOutQuart'
-                });
-            }, 500);
+        if (window.gsap) {
+            gsap.from(heroTitle, {
+                opacity: 0,
+                y: 22,
+                duration: 0.9,
+                ease: 'power2.out',
+                delay: 0.25
+            });
+            var heroDesc = document.querySelector('.hero-description');
+            var heroActions = document.querySelector('.hero-actions');
+            if (heroDesc) gsap.from(heroDesc, { opacity: 0, y: 16, duration: 0.7, ease: 'power2.out', delay: 0.45 });
+            if (heroActions) gsap.from(heroActions, { opacity: 0, y: 12, duration: 0.6, ease: 'power2.out', delay: 0.65 });
+        } else if (window.anime) {
+            anime({ targets: heroTitle, opacity: [0, 1], translateY: [22, 0], duration: 900, easing: 'easeOutQuart', delay: 250 });
         }
     }
 
