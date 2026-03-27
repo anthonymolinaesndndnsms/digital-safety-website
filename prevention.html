@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.prevention_title">Cybersecurity Prevention Guide - Digital Safety Hub</title>
+    <meta name="description" data-i18n="meta.prevention_description" content="Learn essential cybersecurity prevention techniques including strong passwords, two-factor authentication, safe browsing, and regular backups.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="prevention.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <a href="index.html" class="logo" aria-label="Digital Safety Hub - Home">
+                    <svg class="logo-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2L3 7V12C3 16.55 6.84 20.74 12 22C17.16 20.74 21 16.55 21 12V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="logo-text" data-i18n="common.logo">Digital Safety Hub</span>
+                </a>
+
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+                    <a href="threats.html" class="nav-link" data-i18n="nav.threats">Threats</a>
+                    <a href="prevention.html" class="nav-link" aria-current="page" data-i18n="nav.prevention">Prevention</a>
+                    <a href="resources.html" class="nav-link" data-i18n="nav.resources">Resources</a>
+                    <a href="about.html" class="nav-link" data-i18n="nav.about">About</a>
+                </div>
+
+                <div class="language-selector">
+                    <button class="lang-toggle" id="langToggle" aria-label="Select language" data-i18n-attr="aria-label" data-i18n-attr-key="common.select_language">
+                        <svg class="lang-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M2 12H22" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 2A15.3 15.3 0 019 12A15.3 15.3 0 0112 22A15.3 15.3 0 0115 12A15.3 15.3 0 0112 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span id="currentLang">EN</span>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <button class="lang-option" data-lang="en">English</button>
+                        <button class="lang-option" data-lang="es">Español</button>
+                        <button class="lang-option" data-lang="fr">Français</button>
+                    </div>
+                </div>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" data-i18n-attr="aria-label" data-i18n-attr-key="common.toggle_menu" aria-expanded="false">
+                    <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main" role="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title" data-i18n="prevention.page_title">Protection & Prevention Guide</h1>
+                <p class="page-description" data-i18n="prevention.page_description">Practical steps to secure your digital life. Check off items as you complete them to build your personal security foundation.</p>
+            </div>
+        </section>
+
+        <section class="prevention-checklist">
+            <div class="container">
+                <div class="checklist-progress">
+                    <h2 data-i18n="prevention.progress.title">Your Security Progress</h2>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text"><span id="completedCount">0</span> <span data-i18n="prevention.progress.of">of</span> <span id="totalCount">0</span> <span data-i18n="prevention.progress.completed">items completed</span></p>
+                </div>
+
+                <div class="prevention-categories">
+
+                    <!-- Password Security -->
+                    <div class="category-section">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                                    <path d="M7 11V7A5 5 0 0117 7V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="category-info">
+                                <h3 data-i18n="prevention.categories.passwords.title">Password Security</h3>
+                                <p data-i18n="prevention.categories.passwords.description">Strong, unique passwords are your first line of defense</p>
+                            </div>
+                        </div>
+
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="password">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.passwords.items.manager">Use a password manager (recommended: Bitwarden, 1Password, LastPass)</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.passwords.items.manager_details">Password managers generate and store unique, complex passwords for all your accounts. They sync across devices and only require you to remember one master password.</p>
+                                    <a href="https://www.cisa.gov/topics/cybersecurity-best-practices" target="_blank" rel="noopener noreferrer" data-i18n="prevention.categories.passwords.items.manager_link">CISA Password Guidelines</a>
+                                </div>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="password">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.passwords.items.unique">Create unique passwords for each account (minimum 12 characters)</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.passwords.items.unique_details">Reusing passwords means one breach compromises all your accounts. Use passphrases like "Coffee$Morning#Walk2024" instead of complex character combinations.</p>
+                                </div>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="password">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.passwords.items.defaults">Change default passwords on all devices and accounts immediately</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.passwords.items.defaults_details">Default passwords are often well-known or easily guessed (like "admin" or "password"). This includes routers, smart devices, and new accounts.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Two-Factor Authentication -->
+                    <div class="category-section">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 2L3 7V12C3 16.55 6.84 20.74 12 22C17.16 20.74 21 16.55 21 12V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="category-info">
+                                <h3 data-i18n="prevention.categories.twofa.title">Two-Factor Authentication (2FA)</h3>
+                                <p data-i18n="prevention.categories.twofa.description">Add an extra layer of security to your most important accounts</p>
+                            </div>
+                        </div>
+
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="2fa">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.twofa.items.email">Enable 2FA on email accounts (Gmail, Outlook, Yahoo, etc.)</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.twofa.items.email_details">Email is often used to reset passwords for other accounts, making it a high-value target. Use authenticator apps like Google Authenticator or Authy instead of SMS when possible.</p>
+                                    <a href="https://safety.google/security-privacy/" target="_blank" rel="noopener noreferrer" data-i18n="prevention.categories.twofa.items.email_link">Google Security Center</a>
+                                </div>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="2fa">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.twofa.items.banking">Enable 2FA on banking and financial accounts</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.twofa.items.banking_details">Financial accounts contain sensitive information and direct access to your money. Most banks and credit cards now offer 2FA options through apps or text messages.</p>
+                                </div>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="2fa">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.twofa.items.social">Enable 2FA on social media accounts (Facebook, Twitter, Instagram, etc.)</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.twofa.items.social_details">Compromised social media accounts can be used to spread malware, scam your contacts, or damage your reputation through impersonation.</p>
+                                </div>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="2fa">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.twofa.items.backup_codes">Store backup codes in a secure location (password manager or safe)</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.twofa.items.backup_codes_details">Backup codes allow you to access your accounts if you lose your phone or authenticator app. Store them securely and never share them.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Software Updates -->
+                    <div class="category-section">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M21 16V8A2 2 0 0019 6H5A2 2 0 003 8V16A2 2 0 005 18H19A2 2 0 0021 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="11,6 11,12 17,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="category-info">
+                                <h3 data-i18n="prevention.categories.updates.title">Software Updates & Maintenance</h3>
+                                <p data-i18n="prevention.categories.updates.description">Keep your systems secure with regular updates</p>
+                            </div>
+                        </div>
+
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="updates">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.updates.items.operating_system">Enable automatic updates for operating system (Windows, macOS, iOS, Android)</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.updates.items.operating_system_details">Security patches fix vulnerabilities that attackers exploit. Automatic updates ensure you get these fixes as soon as they're available.</p>
+                                </div>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="updates">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.updates.items.browsers">Keep web browsers updated (Chrome, Firefox, Safari, Edge)</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.updates.items.browsers_details">Browsers are frequent targets for attacks. Updates include security fixes and new privacy features. Most browsers update automatically by default.</p>
+                                </div>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="updates">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.updates.items.antivirus">Install reputable antivirus software and keep it updated</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.updates.items.antivirus_details">Modern antivirus goes beyond traditional virus detection to include real-time protection, web security, and behavior analysis. Windows Defender is included with Windows and is quite effective.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Safe Browsing -->
+                    <div class="category-section">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="category-info">
+                                <h3 data-i18n="prevention.categories.browsing.title">Safe Browsing Habits</h3>
+                                <p data-i18n="prevention.categories.browsing.description">Develop habits that protect you while surfing the web</p>
+                            </div>
+                        </div>
+
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="browsing">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.browsing.items.verify_urls">Verify website URLs before entering sensitive information</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.browsing.items.verify_urls_details">Look for HTTPS (the lock icon), check for typos in domain names (like "g00gle.com"), and type URLs directly instead of clicking links in emails.</p>
+                                </div>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="browsing">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.browsing.items.vpn">Use a VPN on public Wi-Fi networks</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.browsing.items.vpn_details">VPNs encrypt your internet traffic, protecting it from eavesdropping on unsecured networks. Popular options include NordVPN, ExpressVPN, and ProtonVPN.</p>
+                                </div>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="browsing">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.browsing.items.official_sources">Download software only from official sources (App Store, Google Play, official websites)</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.browsing.items.official_sources_details">Third-party download sites often bundle malware with legitimate software. Stick to official app stores and vendor websites for downloads.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Backup -->
+                    <div class="category-section">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M14 2H6A2 2 0 004 4V20A2 2 0 006 22H18A2 2 0 0020 20V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="category-info">
+                                <h3 data-i18n="prevention.categories.backup.title">Data Backup & Recovery</h3>
+                                <p data-i18n="prevention.categories.backup.description">Protect your important files from loss or ransomware</p>
+                            </div>
+                        </div>
+
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="backup">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.backup.items.cloud">Set up automatic cloud backup (iCloud, Google Drive, OneDrive)</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.backup.items.cloud_details">Cloud backups protect against device theft, damage, and ransomware. Most services offer automatic syncing of important folders and files.</p>
+                                </div>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="backup">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.backup.items.offline">Create offline backups of critical data (external hard drive, USB)</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.backup.items.offline_details">Offline backups provide protection even if your internet connection or cloud service is compromised. Follow the 3-2-1 rule: 3 copies, 2 different media types, 1 offsite.</p>
+                                </div>
+                            </div>
+
+                            <div class="checklist-item">
+                                <label class="checklist-label">
+                                    <input type="checkbox" class="checklist-checkbox" data-category="backup">
+                                    <span class="checkmark"></span>
+                                    <span class="item-text" data-i18n="prevention.categories.backup.items.test">Test your backups regularly to ensure they work</span>
+                                </label>
+                                <button class="info-toggle" aria-label="More information" data-expanded="false">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M9,9 C9,9 9,9 12,9 C15,9 15,12 12,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="item-details">
+                                    <p data-i18n="prevention.categories.backup.items.test_details">A backup is only useful if it actually works. Periodically try restoring files from your backup to make sure the process works when you need it.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="completion-celebration" id="completionCelebration" style="display: none;">
+                    <div class="celebration-content">
+                        <h3 data-i18n="prevention.completion.title">🎉 Congratulations!</h3>
+                        <p data-i18n="prevention.completion.message">You've completed all the essential security steps. Your digital safety is now significantly improved!</p>
+                        <button class="btn btn-primary" onclick="window.print()" data-i18n="prevention.completion.print_button">Print Security Checklist</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-i18n="footer.quick_links">Quick Links</h3>
+                    <nav aria-label="Footer navigation">
+                        <a href="threats.html" data-i18n="nav.threats">Common Threats</a>
+                        <a href="prevention.html" data-i18n="nav.prevention">Protection Guide</a>
+                        <a href="resources.html" data-i18n="nav.resources">Tools & Resources</a>
+                        <a href="about.html" data-i18n="nav.about">About This Site</a>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h3 data-i18n="footer.sources_credits">Sources & Credits</h3>
+                    <nav aria-label="External resources">
+                        <a href="https://www.cisa.gov/topics/cybersecurity-best-practices" target="_blank" rel="noopener noreferrer">CISA Cybersecurity</a>
+                        <a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer">OWASP Top 10</a>
+                        <a href="https://ssd.eff.org/" target="_blank" rel="noopener noreferrer">EFF Privacy Guides</a>
+                        <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">Have I Been Pwned</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Digital Safety Hub. <span data-i18n="footer.copyright">Educational content for cybersecurity awareness.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="12" y1="19" x2="12" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="5,12 12,5 19,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="anime.min.js"></script>
+    <script src="translations.js"></script>
+    <script src="main.js"></script>
+    <script src="prevention.js"></script>
+</body>
+</html>

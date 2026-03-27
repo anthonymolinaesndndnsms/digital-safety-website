@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.threats_title">Common Online Threats - Digital Safety Hub</title>
+    <meta name="description" data-i18n="meta.threats_description" content="Learn about common cybersecurity threats including phishing, malware, ransomware, and social engineering. Interactive guides to help you stay safe.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="threats.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <a href="index.html" class="logo" aria-label="Digital Safety Hub - Home">
+                    <svg class="logo-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2L3 7V12C3 16.55 6.84 20.74 12 22C17.16 20.74 21 16.55 21 12V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="logo-text" data-i18n="common.logo">Digital Safety Hub</span>
+                </a>
+
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+                    <a href="threats.html" class="nav-link" aria-current="page" data-i18n="nav.threats">Threats</a>
+                    <a href="prevention.html" class="nav-link" data-i18n="nav.prevention">Prevention</a>
+                    <a href="resources.html" class="nav-link" data-i18n="nav.resources">Resources</a>
+                    <a href="about.html" class="nav-link" data-i18n="nav.about">About</a>
+                </div>
+
+                <div class="language-selector">
+                    <button class="lang-toggle" id="langToggle" aria-label="Select language" data-i18n-attr="aria-label" data-i18n-attr-key="common.select_language">
+                        <svg class="lang-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M2 12H22" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 2A15.3 15.3 0 019 12A15.3 15.3 0 0112 22A15.3 15.3 0 0115 12A15.3 15.3 0 0112 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span id="currentLang">EN</span>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <button class="lang-option" data-lang="en">English</button>
+                        <button class="lang-option" data-lang="es">Español</button>
+                        <button class="lang-option" data-lang="fr">Français</button>
+                    </div>
+                </div>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" data-i18n-attr="aria-label" data-i18n-attr-key="common.toggle_menu" aria-expanded="false">
+                    <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main" role="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title" data-i18n="threats.page_title">Common Online Threats</h1>
+                <p class="page-description" data-i18n="threats.page_description">Understanding threats is the first step to protection. Click on each threat below to learn how to recognize and defend against it.</p>
+            </div>
+        </section>
+
+        <section class="threats-grid-section">
+            <div class="container">
+                <div class="threats-grid" role="list">
+
+                    <!-- Phishing -->
+                    <div class="threat-card" role="listitem" data-threat="phishing">
+                        <div class="threat-card-front">
+                            <div class="threat-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 10L19 13L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="threat-title" data-i18n="threats.phishing.title">Phishing</h3>
+                            <p class="threat-summary" data-i18n="threats.phishing.summary">Fraudulent emails and websites designed to steal your personal information.</p>
+                            <button class="expand-btn" aria-label="Learn more about phishing" data-i18n-attr="aria-label" data-i18n-attr-key="common.learn_more" aria-expanded="false">
+                                <span data-i18n="common.learn_more">Learn More</span>
+                                <svg class="expand-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <polyline points="6,9 12,15 18,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="threat-card-back" aria-hidden="true">
+                            <div class="threat-details">
+                                <h4 data-i18n="threats.phishing.details.what_is">What is Phishing?</h4>
+                                <p data-i18n="threats.phishing.details.what_description">Phishing attacks use deceptive emails, texts, or websites that appear to be from legitimate organizations to trick you into revealing sensitive information like passwords, credit card numbers, or social security numbers.</p>
+
+                                <h4 data-i18n="threats.phishing.details.real_example">Real Example</h4>
+                                <p data-i18n="threats.phishing.details.example_description">An email claiming to be from your bank saying "Your account will be closed unless you verify your information immediately" with a link to a fake banking website.</p>
+
+                                <h4 data-i18n="threats.phishing.details.warning_signs">Warning Signs</h4>
+                                <ul>
+                                    <li data-i18n="threats.phishing.details.warning_signs_list.0">Urgent or threatening language</li>
+                                    <li data-i18n="threats.phishing.details.warning_signs_list.1">Generic greetings (\"Dear Customer\")</li>
+                                    <li data-i18n="threats.phishing.details.warning_signs_list.2">Suspicious sender addresses</li>
+                                    <li data-i18n="threats.phishing.details.warning_signs_list.3">Unexpected attachments or links</li>
+                                    <li data-i18n="threats.phishing.details.warning_signs_list.4">Poor grammar and spelling</li>
+                                </ul>
+
+                                <h4 data-i18n="threats.phishing.details.protection">How to Protect Yourself</h4>
+                                <ol>
+                                    <li data-i18n="threats.phishing.details.protection_list.0">Never click links in suspicious emails</li>
+                                    <li data-i18n="threats.phishing.details.protection_list.1">Type website URLs directly into your browser</li>
+                                    <li data-i18n="threats.phishing.details.protection_list.2">Verify requests by calling the organization directly</li>
+                                    <li data-i18n="threats.phishing.details.protection_list.3">Use email filters and spam protection</li>
+                                    <li data-i18n="threats.phishing.details.protection_list.4">Keep your software updated</li>
+                                </ol>
+
+                                <div class="threat-sources">
+                                    <h4 data-i18n="threats.phishing.details.learn_more">Learn More</h4>
+                                    <a href="https://www.phishing.org/phishing-resources" target="_blank" rel="noopener noreferrer" data-i18n="threats.phishing.details.source1">Phishing.org Resources</a>
+                                    <a href="https://www.cisa.gov/topics/cybersecurity-best-practices" target="_blank" rel="noopener noreferrer" data-i18n="threats.phishing.details.source2">CISA Best Practices</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Malware -->
+                    <div class="threat-card" role="listitem" data-threat="malware">
+                        <div class="threat-card-front">
+                            <div class="threat-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 8L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 8L8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="threat-title" data-i18n="threats.malware.title">Malware</h3>
+                            <p class="threat-summary" data-i18n="threats.malware.summary">Malicious software that can damage your computer or steal your data.</p>
+                            <button class="expand-btn" aria-label="Learn more about malware" data-i18n-attr="aria-label" data-i18n-attr-key="common.learn_more" aria-expanded="false">
+                                <span data-i18n="common.learn_more">Learn More</span>
+                                <svg class="expand-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <polyline points="6,9 12,15 18,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="threat-card-back" aria-hidden="true">
+                            <div class="threat-details">
+                                <h4 data-i18n="threats.malware.details.what_is">What is Malware?</h4>
+                                <p data-i18n="threats.malware.details.what_description">Malware is any software intentionally designed to cause damage to a computer, server, client, or computer network. It includes viruses, worms, trojan horses, spyware, and ransomware.</p>
+
+                                <h4 data-i18n="threats.malware.details.real_example">Real Example</h4>
+                                <p data-i18n="threats.malware.details.example_description">A fake software update popup that actually installs keylogger software to capture everything you type, including passwords and credit card numbers.</p>
+
+                                <h4 data-i18n="threats.malware.details.warning_signs">Warning Signs</h4>
+                                <ul>
+                                    <li data-i18n="threats.malware.details.warning_signs_list.0">Computer running slowly</li>
+                                    <li data-i18n="threats.malware.details.warning_signs_list.1">Unexpected pop-ups or ads</li>
+                                    <li data-i18n="threats.malware.details.warning_signs_list.2">Programs opening or closing automatically</li>
+                                    <li data-i18n="threats.malware.details.warning_signs_list.3">Files being deleted or encrypted</li>
+                                    <li data-i18n="threats.malware.details.warning_signs_list.4">Unusual network activity</li>
+                                </ul>
+
+                                <h4 data-i18n="threats.malware.details.protection">How to Protect Yourself</h4>
+                                <ol>
+                                    <li data-i18n="threats.malware.details.protection_list.0">Use reputable antivirus software</li>
+                                    <li data-i18n="threats.malware.details.protection_list.1">Keep your operating system updated</li>
+                                    <li data-i18n="threats.malware.details.protection_list.2">Download software only from official sources</li>
+                                    <li data-i18n="threats.malware.details.protection_list.3">Be cautious with email attachments</li>
+                                    <li data-i18n="threats.malware.details.protection_list.4">Regular system backups</li>
+                                </ol>
+
+                                <div class="threat-sources">
+                                    <h4 data-i18n="threats.malware.details.learn_more">Learn More</h4>
+                                    <a href="https://www.cisa.gov/topics/cybersecurity-best-practices" target="_blank" rel="noopener noreferrer" data-i18n="threats.malware.details.source1">CISA Malware Guide</a>
+                                    <a href="https://ssd.eff.org/" target="_blank" rel="noopener noreferrer" data-i18n="threats.malware.details.source2">EFF Security Guide</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ransomware -->
+                    <div class="threat-card" role="listitem" data-threat="ransomware">
+                        <div class="threat-card-front">
+                            <div class="threat-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                                    <path d="M7 11V7A5 5 0 0117 7V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="threat-title" data-i18n="threats.ransomware.title">Ransomware</h3>
+                            <p class="threat-summary" data-i18n="threats.ransomware.summary">Malware that encrypts your files and demands payment for the decryption key.</p>
+                            <button class="expand-btn" aria-label="Learn more about ransomware" data-i18n-attr="aria-label" data-i18n-attr-key="common.learn_more" aria-expanded="false">
+                                <span data-i18n="common.learn_more">Learn More</span>
+                                <svg class="expand-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <polyline points="6,9 12,15 18,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="threat-card-back" aria-hidden="true">
+                            <div class="threat-details">
+                                <h4 data-i18n="threats.ransomware.details.what_is">What is Ransomware?</h4>
+                                <p data-i18n="threats.ransomware.details.what_description">Ransomware is a type of malware that encrypts files on your computer or network, making them inaccessible until you pay a ransom to the attackers for the decryption key.</p>
+
+                                <h4 data-i18n="threats.ransomware.details.real_example">Real Example</h4>
+                                <p data-i18n="threats.ransomware.details.example_description">The WannaCry attack in 2017 infected hundreds of thousands of computers worldwide, encrypting files and demanding Bitcoin payments. It affected hospitals, businesses, and government systems.</p>
+
+                                <h4 data-i18n="threats.ransomware.details.warning_signs">Warning Signs</h4>
+                                <ul>
+                                    <li data-i18n="threats.ransomware.details.warning_signs_list.0">Files become inaccessible or encrypted</li>
+                                    <li data-i18n="threats.ransomware.details.warning_signs_list.1">Ransom notes appear on your screen</li>
+                                    <li data-i18n="threats.ransomware.details.warning_signs_list.2">File extensions change to unusual formats</li>
+                                    <li data-i18n="threats.ransomware.details.warning_signs_list.3">System performance degrades suddenly</li>
+                                    <li data-i18n="threats.ransomware.details.warning_signs_list.4">Suspicious network activity</li>
+                                </ul>
+
+                                <h4 data-i18n="threats.ransomware.details.protection">How to Protect Yourself</h4>
+                                <ol>
+                                    <li data-i18n="threats.ransomware.details.protection_list.0">Regular automated backups (offline storage)</li>
+                                    <li data-i18n="threats.ransomware.details.protection_list.1">Keep software and systems updated</li>
+                                    <li data-i18n="threats.ransomware.details.protection_list.2">Use endpoint protection software</li>
+                                    <li data-i18n="threats.ransomware.details.protection_list.3">Train users to recognize phishing attempts</li>
+                                    <li data-i18n="threats.ransomware.details.protection_list.4">Limit user privileges and network access</li>
+                                </ol>
+
+                                <div class="threat-sources">
+                                    <h4 data-i18n="threats.ransomware.details.learn_more">Learn More</h4>
+                                    <a href="https://www.cisa.gov/resources-tools/resources/free-cybersecurity-services-and-tools" target="_blank" rel="noopener noreferrer" data-i18n="threats.ransomware.details.source1">CISA Ransomware Guide</a>
+                                    <a href="https://krebsonsecurity.com/" target="_blank" rel="noopener noreferrer" data-i18n="threats.ransomware.details.source2">KrebsOnSecurity Reports</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Engineering -->
+                    <div class="threat-card" role="listitem" data-threat="social-engineering">
+                        <div class="threat-card-front">
+                            <div class="threat-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M17 2H7C4 2 2 4 2 7V17C2 20 4 22 7 22H17C20 22 22 20 22 17V7C22 4 20 2 17 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M7 20V19C7 16.24 9.24 14 12 14S17 16.24 17 19V20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="threat-title" data-i18n="threats.social_engineering.title">Social Engineering</h3>
+                            <p class="threat-summary" data-i18n="threats.social_engineering.summary">Psychological manipulation to trick people into revealing information or performing actions.</p>
+                            <button class="expand-btn" aria-label="Learn more about social engineering" data-i18n-attr="aria-label" data-i18n-attr-key="common.learn_more" aria-expanded="false">
+                                <span data-i18n="common.learn_more">Learn More</span>
+                                <svg class="expand-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <polyline points="6,9 12,15 18,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="threat-card-back" aria-hidden="true">
+                            <div class="threat-details">
+                                <h4 data-i18n="threats.social_engineering.details.what_is">What is Social Engineering?</h4>
+                                <p data-i18n="threats.social_engineering.details.what_description">Social engineering uses psychological manipulation to trick people into divulging confidential information or performing actions that compromise security, often exploiting human emotions like fear, curiosity, or helpfulness.</p>
+
+                                <h4 data-i18n="threats.social_engineering.details.real_example">Real Example</h4>
+                                <p data-i18n="threats.social_engineering.details.example_description">A caller pretending to be from IT support asking for your password to "fix a system issue." They create urgency and authority to pressure you into complying.</p>
+
+                                <h4 data-i18n="threats.social_engineering.details.warning_signs">Warning Signs</h4>
+                                <ul>
+                                    <li data-i18n="threats.social_engineering.details.warning_signs_list.0">Unsolicited contact asking for sensitive information</li>
+                                    <li data-i18n="threats.social_engineering.details.warning_signs_list.1">Creating false urgency or emergency situations</li>
+                                    <li data-i18n="threats.social_engineering.details.warning_signs_list.2">Claiming to be from authority figures</li>
+                                    <li data-i18n="threats.social_engineering.details.warning_signs_list.3">Offering something too good to be true</li>
+                                    <li data-i18n="threats.social_engineering.details.warning_signs_list.4">Playing on emotions (fear, greed, sympathy)</li>
+                                </ul>
+
+                                <h4 data-i18n="threats.social_engineering.details.protection">How to Protect Yourself</h4>
+                                <ol>
+                                    <li data-i18n="threats.social_engineering.details.protection_list.0">Verify the identity of anyone requesting information</li>
+                                    <li data-i18n="threats.social_engineering.details.protection_list.1">Be skeptical of unsolicited contact</li>
+                                    <li data-i18n="threats.social_engineering.details.protection_list.2">Never give out passwords or sensitive data</li>
+                                    <li data-i18n="threats.social_engineering.details.protection_list.3">Take time to think before acting</li>
+                                    <li data-i18n="threats.social_engineering.details.protection_list.4">Follow established verification procedures</li>
+                                </ol>
+
+                                <div class="threat-sources">
+                                    <h4 data-i18n="threats.social_engineering.details.learn_more">Learn More</h4>
+                                    <a href="https://www.cisa.gov/resources-tools/programs/cisa-cybersecurity-awareness-program" target="_blank" rel="noopener noreferrer" data-i18n="threats.social_engineering.details.source1">CISA Awareness Program</a>
+                                    <a href="https://ssd.eff.org/" target="_blank" rel="noopener noreferrer" data-i18n="threats.social_engineering.details.source2">EFF Surveillance Self-Defense</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Weak Passwords -->
+                    <div class="threat-card" role="listitem" data-threat="weak-passwords">
+                        <div class="threat-card-front">
+                            <div class="threat-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M2 18H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6 14L7.5 16L11 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="17" cy="8" r="2" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="7" cy="8" r="2" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="12" cy="5" r="2" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 class="threat-title" data-i18n="threats.weak_passwords.title">Weak & Reused Passwords</h3>
+                            <p class="threat-summary" data-i18n="threats.weak_passwords.summary">Simple or repeated passwords make it easy for attackers to gain access to your accounts.</p>
+                            <button class="expand-btn" aria-label="Learn more about weak passwords" data-i18n-attr="aria-label" data-i18n-attr-key="common.learn_more" aria-expanded="false">
+                                <span data-i18n="common.learn_more">Learn More</span>
+                                <svg class="expand-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <polyline points="6,9 12,15 18,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="threat-card-back" aria-hidden="true">
+                            <div class="threat-details">
+                                <h4 data-i18n="threats.weak_passwords.details.what_is">What are Weak/Reused Passwords?</h4>
+                                <p data-i18n="threats.weak_passwords.details.what_description">Weak passwords are easy to guess or crack, while reused passwords mean that if one account is compromised, attackers can access all your other accounts using the same password.</p>
+
+                                <h4 data-i18n="threats.weak_passwords.details.real_example">Real Example</h4>
+                                <p data-i18n="threats.weak_passwords.details.example_description">Using "password123" or "123456" for your email, which can be cracked in seconds. Or using the same password for your email, banking, and social media accounts.</p>
+
+                                <h4 data-i18n="threats.weak_passwords.details.warning_signs">Warning Signs</h4>
+                                <ul>
+                                    <li data-i18n="threats.weak_passwords.details.warning_signs_list.0">Using common passwords (password, 123456, qwerty)</li>
+                                    <li data-i18n="threats.weak_passwords.details.warning_signs_list.1">Using personal information (birthday, name, address)</li>
+                                    <li data-i18n="threats.weak_passwords.details.warning_signs_list.2">Using the same password across multiple sites</li>
+                                    <li data-i18n="threats.weak_passwords.details.warning_signs_list.3">Passwords shorter than 12 characters</li>
+                                    <li data-i18n="threats.weak_passwords.details.warning_signs_list.4">Never changing default passwords</li>
+                                </ul>
+
+                                <h4 data-i18n="threats.weak_passwords.details.protection">How to Protect Yourself</h4>
+                                <ol>
+                                    <li data-i18n="threats.weak_passwords.details.protection_list.0">Use unique passwords for each account</li>
+                                    <li data-i18n="threats.weak_passwords.details.protection_list.1">Create long, complex passwords (12+ characters)</li>
+                                    <li data-i18n="threats.weak_passwords.details.protection_list.2">Use a password manager</li>
+                                    <li data-i18n="threats.weak_passwords.details.protection_list.3">Enable two-factor authentication</li>
+                                    <li data-i18n="threats.weak_passwords.details.protection_list.4">Change default passwords immediately</li>
+                                </ol>
+
+                                <div class="threat-sources">
+                                    <h4 data-i18n="threats.weak_passwords.details.learn_more">Learn More</h4>
+                                    <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer" data-i18n="threats.weak_passwords.details.source1">Check if your password is compromised</a>
+                                    <a href="https://www.nist.gov/topics/cybersecurity-framework" target="_blank" rel="noopener noreferrer" data-i18n="threats.weak_passwords.details.source2">NIST Password Guidelines</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Public Wi-Fi -->
+                    <div class="threat-card" role="listitem" data-threat="public-wifi">
+                        <div class="threat-card-front">
+                            <div class="threat-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M5 12.55A11 11 0 0112 9C15.5 9 18.68 10.41 21 12.55" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8.21 15.89A7 7 0 0112 14C13.87 14 15.58 14.74 16.79 15.89" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M11 18H13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 8.82A15 15 0 0112 5C16.84 5 21.16 6.58 24 8.82" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="threat-title" data-i18n="threats.public_wifi.title">Unsafe Public Wi-Fi</h3>
+                            <p class="threat-summary" data-i18n="threats.public_wifi.summary">Unsecured networks that allow attackers to intercept your data and communications.</p>
+                            <button class="expand-btn" aria-label="Learn more about public Wi-Fi risks" data-i18n-attr="aria-label" data-i18n-attr-key="common.learn_more" aria-expanded="false">
+                                <span data-i18n="common.learn_more">Learn More</span>
+                                <svg class="expand-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <polyline points="6,9 12,15 18,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="threat-card-back" aria-hidden="true">
+                            <div class="threat-details">
+                                <h4 data-i18n="threats.public_wifi.details.what_is">What are Public Wi-Fi Risks?</h4>
+                                <p data-i18n="threats.public_wifi.details.what_description">Public Wi-Fi networks are often unsecured, allowing cybercriminals to intercept data transmitted over the network, steal personal information, or inject malware into connected devices.</p>
+
+                                <h4 data-i18n="threats.public_wifi.details.real_example">Real Example</h4>
+                                <p data-i18n="threats.public_wifi.details.example_description">Connecting to "Free_WiFi" at a coffee shop, which is actually run by a hacker who can see all your browsing activity, capture login credentials, and steal personal data.</p>
+
+                                <h4 data-i18n="threats.public_wifi.details.warning_signs">Warning Signs</h4>
+                                <ul>
+                                    <li data-i18n="threats.public_wifi.details.warning_signs_list.0">Networks without passwords</li>
+                                    <li data-i18n="threats.public_wifi.details.warning_signs_list.1">Suspicious network names (\"Free_WiFi\", \"Airport_WiFi\")</li>
+                                    <li data-i18n="threats.public_wifi.details.warning_signs_list.2">Multiple networks with similar names</li>
+                                    <li data-i18n="threats.public_wifi.details.warning_signs_list.3">Requests to install certificates or software</li>
+                                    <li data-i18n="threats.public_wifi.details.warning_signs_list.4">Pop-ups asking for personal information</li>
+                                </ul>
+
+                                <h4 data-i18n="threats.public_wifi.details.protection">How to Protect Yourself</h4>
+                                <ol>
+                                    <li data-i18n="threats.public_wifi.details.protection_list.0">Use a VPN on public networks</li>
+                                    <li data-i18n="threats.public_wifi.details.protection_list.1">Verify network names with staff</li>
+                                    <li data-i18n="threats.public_wifi.details.protection_list.2">Avoid accessing sensitive accounts</li>
+                                    <li data-i18n="threats.public_wifi.details.protection_list.3">Turn off auto-connect to Wi-Fi</li>
+                                    <li data-i18n="threats.public_wifi.details.protection_list.4">Use your mobile hotspot instead</li>
+                                </ol>
+
+                                <div class="threat-sources">
+                                    <h4 data-i18n="threats.public_wifi.details.learn_more">Learn More</h4>
+                                    <a href="https://www.cisa.gov/topics/cybersecurity-best-practices" target="_blank" rel="noopener noreferrer" data-i18n="threats.public_wifi.details.source1">CISA Wi-Fi Security</a>
+                                    <a href="https://ssd.eff.org/" target="_blank" rel="noopener noreferrer" data-i18n="threats.public_wifi.details.source2">EFF Privacy Guides</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-i18n="threats.cta.title">Ready to Protect Yourself?</h2>
+                <p data-i18n="threats.cta.description">Now that you know the threats, learn how to defend against them.</p>
+                <a href="prevention.html" class="btn btn-primary" data-i18n="threats.cta.button">View Protection Guide</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-i18n="footer.quick_links">Quick Links</h3>
+                    <nav aria-label="Footer navigation">
+                        <a href="threats.html" data-i18n="nav.common_threats">Common Threats</a>
+                        <a href="prevention.html" data-i18n="nav.protection_guide">Protection Guide</a>
+                        <a href="resources.html" data-i18n="nav.tools_resources">Tools & Resources</a>
+                        <a href="about.html" data-i18n="nav.about_site">About This Site</a>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h3 data-i18n="footer.sources_credits">Sources & Credits</h3>
+                    <nav aria-label="External resources">
+                        <a href="https://www.cisa.gov/topics/cybersecurity-best-practices" target="_blank" rel="noopener noreferrer" data-i18n="footer.cisa_link">CISA Cybersecurity</a>
+                        <a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer" data-i18n="footer.owasp_link">OWASP Top 10</a>
+                        <a href="https://ssd.eff.org/" target="_blank" rel="noopener noreferrer" data-i18n="footer.eff_link">EFF Privacy Guides</a>
+                        <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer" data-i18n="footer.hibp_link">Have I Been Pwned</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 <span data-i18n="common.logo">Digital Safety Hub</span>. <span data-i18n="footer.copyright">Educational content for cybersecurity awareness.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" data-i18n-attr="aria-label" data-i18n-attr-key="common.back_to_top">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="12" y1="19" x2="12" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="5,12 12,5 19,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="anime.min.js"></script>
+    <script src="translations.js"></script>
+    <script src="main.js"></script>
+    <script src="threats.js"></script>
+</body>
+</html>

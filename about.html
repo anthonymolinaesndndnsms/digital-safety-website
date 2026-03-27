@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.about_title">About - Digital Safety Hub</title>
+    <meta name="description" data-i18n="meta.about_description" content="Learn about Digital Safety Hub's mission to provide accessible cybersecurity education and resources for everyone.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <a href="index.html" class="logo" aria-label="Digital Safety Hub - Home">
+                    <svg class="logo-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2L3 7V12C3 16.55 6.84 20.74 12 22C17.16 20.74 21 16.55 21 12V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="logo-text" data-i18n="common.logo">Digital Safety Hub</span>
+                </a>
+
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+                    <a href="threats.html" class="nav-link" data-i18n="nav.threats">Threats</a>
+                    <a href="prevention.html" class="nav-link" data-i18n="nav.prevention">Prevention</a>
+                    <a href="resources.html" class="nav-link" data-i18n="nav.resources">Resources</a>
+                    <a href="about.html" class="nav-link" aria-current="page" data-i18n="nav.about">About</a>
+                </div>
+
+                <div class="language-selector">
+                    <button class="lang-toggle" id="langToggle" aria-label="Select language" data-i18n-attr="aria-label" data-i18n-attr-key="common.select_language">
+                        <svg class="lang-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M2 12H22" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 2A15.3 15.3 0 019 12A15.3 15.3 0 0112 22A15.3 15.3 0 0115 12A15.3 15.3 0 0112 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span id="currentLang">EN</span>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <button class="lang-option" data-lang="en">English</button>
+                        <button class="lang-option" data-lang="es">Español</button>
+                        <button class="lang-option" data-lang="fr">Français</button>
+                    </div>
+                </div>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" data-i18n-attr="aria-label" data-i18n-attr-key="common.toggle_menu" aria-expanded="false">
+                    <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main" role="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title" data-i18n="about.page_title">About Digital Safety Hub</h1>
+                <p class="page-description" data-i18n="about.page_description">Empowering everyone with the knowledge and tools to stay safe in the digital world.</p>
+            </div>
+        </section>
+
+        <section class="about-content">
+            <div class="container">
+                <div class="content-grid">
+
+                    <div class="content-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2L3 7V12C3 16.55 6.84 20.74 12 22C17.16 20.74 21 16.55 21 12V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="section-content">
+                            <h2 data-i18n="about.mission.title">Our Mission</h2>
+                            <p data-i18n="about.mission.content">Digital Safety Hub was created to bridge the cybersecurity knowledge gap by providing accessible, practical, and actionable information to help people protect themselves online. We believe that cybersecurity education should be available to everyone, regardless of their technical background.</p>
+                            <p data-i18n="about.mission.content2">In an increasingly connected world, cyber threats affect individuals, families, and communities every day. Our goal is to empower people with the knowledge and tools they need to recognize threats, implement protective measures, and respond effectively to security incidents.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="section-content">
+                            <h2 data-i18n="about.why.title">Why This Matters</h2>
+                            <p data-i18n="about.why.content">Cybercrime affects millions of people each year, with losses reaching billions of dollars globally. Beyond financial impact, cyber attacks can compromise personal privacy, damage reputations, and cause significant emotional distress.</p>
+                            <p data-i18n="about.why.content2">Many security resources are either too technical for the average person or too basic to be truly helpful. We aim to provide the right level of detail—enough to be actionable, but accessible enough for anyone to understand and implement.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M14.7 6.3A1 1 0 0015 5V3A1 1 0 0016 2H22A1 1 0 0023 3V5A1 1 0 0023.3 5.7L20 9L23.3 12.3A1 1 0 0023 13V15A1 1 0 0022 16H16A1 1 0 0015 15V13A1 1 0 0015.3 12.3L18.6 9L15.3 5.7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <rect x="3" y="8" width="6" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+                                <rect x="3" y="16" width="6" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="section-content">
+                            <h2 data-i18n="about.approach.title">Our Approach</h2>
+                            <p data-i18n="about.approach.content">We focus on practical, implementable security measures rather than abstract concepts. Each recommendation includes clear steps, real-world examples, and links to authoritative sources for further learning.</p>
+                            <p data-i18n="about.approach.content2">Our content is designed to be:</p>
+                            <ul>
+                                <li><strong data-i18n="about.approach.accessible.title">Accessible:</strong> <span data-i18n="about.approach.accessible.content">Written in plain language without unnecessary jargon</span></li>
+                                <li><strong data-i18n="about.approach.actionable.title">Actionable:</strong> <span data-i18n="about.approach.actionable.content">Focused on specific steps you can take today</span></li>
+                                <li><strong data-i18n="about.approach.authoritative.title">Authoritative:</strong> <span data-i18n="about.approach.authoritative.content">Based on guidance from trusted security organizations</span></li>
+                                <li><strong data-i18n="about.approach.current.title">Current:</strong> <span data-i18n="about.approach.current.content">Regularly updated to reflect the latest threats and best practices</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <div class="section-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 22H20A2 2 0 0022 20V4A2 2 0 0020 2H8A2 2 0 006 4V16L4 18V22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="10" y1="6" x2="18" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="10" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="10" y1="14" x2="18" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="section-content">
+                            <h2 data-i18n="about.sources.title">Content Sources</h2>
+                            <p data-i18n="about.sources.content">All information on this site is derived from authoritative cybersecurity sources, including:</p>
+                            <ul>
+                                <li><strong data-i18n="about.sources.cisa.title">CISA (Cybersecurity and Infrastructure Security Agency):</strong> <span data-i18n="about.sources.cisa.content">Official U.S. government cybersecurity guidance</span></li>
+                                <li><strong data-i18n="about.sources.nist.title">NIST (National Institute of Standards and Technology):</strong> <span data-i18n="about.sources.nist.content">Cybersecurity frameworks and standards</span></li>
+                                <li><strong data-i18n="about.sources.owasp.title">OWASP (Open Web Application Security Project):</strong> <span data-i18n="about.sources.owasp.content">Web application security best practices</span></li>
+                                <li><strong data-i18n="about.sources.eff.title">EFF (Electronic Frontier Foundation):</strong> <span data-i18n="about.sources.eff.content">Digital privacy and security resources</span></li>
+                                <li><strong data-i18n="about.sources.researchers.title">Leading security researchers:</strong> <span data-i18n="about.sources.researchers.content">Current threat intelligence and analysis</span></li>
+                            </ul>
+                            <p data-i18n="about.sources.content2">We do not create security advice from scratch—instead, we curate, summarize, and present existing authoritative guidance in an accessible format.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="principles-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="about.principles.title">Our Principles</h2>
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 14S9.5 16 12 16S16 14 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="9" y1="9" x2="9.01" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="15" y1="9" x2="15.01" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="about.principles.accessibility.title">Accessibility First</h3>
+                        <p data-i18n="about.principles.accessibility.content">Security shouldn't be a privilege. We make cybersecurity knowledge accessible to everyone, regardless of technical background or experience level.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="about.principles.evidence.title">Evidence-Based</h3>
+                        <p data-i18n="about.principles.evidence.content">Every recommendation is backed by authoritative sources and established security best practices. We cite our sources and encourage further learning.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="about.principles.action.title">Action-Oriented</h3>
+                        <p data-i18n="about.principles.action.content">Knowledge without action doesn't improve security. We focus on practical steps you can implement immediately to improve your digital safety.</p>
+                    </div>
+
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="about.principles.current.title">Always Current</h3>
+                        <p data-i18n="about.principles.current.content">The threat landscape evolves constantly. We regularly update our content to reflect new threats, tools, and best practices in cybersecurity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="disclaimer-section">
+            <div class="container">
+                <h2 data-i18n="about.disclaimers.title">Important Disclaimers</h2>
+                <div class="disclaimer-content">
+                    <div class="disclaimer-item">
+                        <h3 data-i18n="about.disclaimers.educational.title">Educational Purpose</h3>
+                        <p data-i18n="about.disclaimers.educational.content">This website is designed for educational purposes only. While we strive for accuracy and usefulness, cybersecurity is complex and situational. Always consult with cybersecurity professionals for specific security needs or incident response.</p>
+                    </div>
+
+                    <div class="disclaimer-item">
+                        <h3 data-i18n="about.disclaimers.guarantees.title">No Guarantees</h3>
+                        <p data-i18n="about.disclaimers.guarantees.content">Following the guidance on this site will improve your security posture, but no security measures are 100% effective. Cyber threats are constantly evolving, and determined attackers may still find ways to compromise systems despite best practices.</p>
+                    </div>
+
+                    <div class="disclaimer-item">
+                        <h3 data-i18n="about.disclaimers.links.title">External Links</h3>
+                        <p data-i18n="about.disclaimers.links.content">We link to external resources from trusted organizations. These links are provided for convenience and additional information. We are not responsible for the content, privacy practices, or security of external websites.</p>
+                    </div>
+
+                    <div class="disclaimer-item">
+                        <h3 data-i18n="about.disclaimers.privacy.title">Privacy</h3>
+                        <p data-i18n="about.disclaimers.privacy.content">This website does not collect personal information, use tracking cookies, or share data with third parties. We believe privacy education should come with privacy protection.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-i18n="about.cta.title">Ready to Improve Your Security?</h2>
+                <p data-i18n="about.cta.content">Start with our practical prevention guide to build a strong foundation for your digital safety.</p>
+                <a href="prevention.html" class="btn btn-primary" data-i18n="about.cta.button">Start Your Security Journey</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-i18n="footer.quick_links">Quick Links</h3>
+                    <nav aria-label="Footer navigation">
+                        <a href="threats.html" data-i18n="nav.threats">Common Threats</a>
+                        <a href="prevention.html" data-i18n="nav.prevention">Protection Guide</a>
+                        <a href="resources.html" data-i18n="nav.resources">Tools & Resources</a>
+                        <a href="about.html" data-i18n="nav.about">About This Site</a>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h3 data-i18n="footer.sources_credits">Sources & Credits</h3>
+                    <nav aria-label="External resources">
+                        <a href="https://www.cisa.gov/topics/cybersecurity-best-practices" target="_blank" rel="noopener noreferrer">CISA Cybersecurity</a>
+                        <a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer">OWASP Top 10</a>
+                        <a href="https://ssd.eff.org/" target="_blank" rel="noopener noreferrer">EFF Privacy Guides</a>
+                        <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">Have I Been Pwned</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Digital Safety Hub. <span data-i18n="footer.copyright">Educational content for cybersecurity awareness.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="12" y1="19" x2="12" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="5,12 12,5 19,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="anime.min.js"></script>
+    <script src="translations.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

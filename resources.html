@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.resources_title">Cybersecurity Resources & Tools - Digital Safety Hub</title>
+    <meta name="description" data-i18n="meta.resources_description" content="Curated collection of cybersecurity tools, guides, and resources from trusted organizations like CISA, EFF, and OWASP.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="resources.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <a href="index.html" class="logo" aria-label="Digital Safety Hub - Home">
+                    <svg class="logo-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 2L3 7V12C3 16.55 6.84 20.74 12 22C17.16 20.74 21 16.55 21 12V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="logo-text" data-i18n="common.logo">Digital Safety Hub</span>
+                </a>
+
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link" data-i18n="nav.home">Home</a>
+                    <a href="threats.html" class="nav-link" data-i18n="nav.threats">Threats</a>
+                    <a href="prevention.html" class="nav-link" data-i18n="nav.prevention">Prevention</a>
+                    <a href="resources.html" class="nav-link" aria-current="page" data-i18n="nav.resources">Resources</a>
+                    <a href="about.html" class="nav-link" data-i18n="nav.about">About</a>
+                </div>
+
+                <div class="language-selector">
+                    <button class="lang-toggle" id="langToggle" aria-label="Select language" data-i18n-attr="aria-label" data-i18n-attr-key="common.select_language">
+                        <svg class="lang-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M2 12H22" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 2A15.3 15.3 0 019 12A15.3 15.3 0 0112 22A15.3 15.3 0 0115 12A15.3 15.3 0 0112 2Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span id="currentLang">EN</span>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <button class="lang-option" data-lang="en">English</button>
+                        <button class="lang-option" data-lang="es">Español</button>
+                        <button class="lang-option" data-lang="fr">Français</button>
+                    </div>
+                </div>
+
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" data-i18n-attr="aria-label" data-i18n-attr-key="common.toggle_menu" aria-expanded="false">
+                    <svg class="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main" role="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title" data-i18n="resources.page_title">Resources & Tools</h1>
+                <p class="page-description" data-i18n="resources.page_description">Trusted cybersecurity resources, tools, and guides from authoritative organizations. Click any resource to learn more.</p>
+            </div>
+        </section>
+
+        <section class="resources-section">
+            <div class="container">
+
+                <!-- Government & Official Resources -->
+                <div class="resource-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2L3 7V12C3 16.55 6.84 20.74 12 22C17.16 20.74 21 16.55 21 12V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="category-info">
+                            <h2 data-i18n="resources.sections.government.title">Government & Official Resources</h2>
+                            <p data-i18n="resources.sections.government.description">Authoritative guidance from trusted government agencies</p>
+                        </div>
+                    </div>
+
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <div class="resource-header">
+                                <h3 data-i18n="resources.sections.government.cisa_best.title">CISA Cybersecurity Best Practices</h3>
+                                <span class="resource-type">Government</span>
+                            </div>
+                            <p class="resource-description" data-i18n="resources.sections.government.cisa_best.description">Comprehensive cybersecurity guidance from the U.S. Cybersecurity and Infrastructure Security Agency, including best practices for individuals and organizations.</p>
+                            <div class="resource-features">
+                                <span class="feature-tag">Best Practices</span>
+                                <span class="feature-tag">Official Guidelines</span>
+                                <span class="feature-tag">Free</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="https://www.cisa.gov/topics/cybersecurity-best-practices" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    Visit CISA
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M18 13V19A2 2 0 0116 21H5A2 2 0 013 19V8A2 2 0 015 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <button class="quick-scan-btn" data-summary="Official U.S. government cybersecurity guidance covering threat awareness, incident response, and security frameworks for all users.">
+                                    Quick Scan
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-header">
+                                <h3 data-i18n="resources.sections.government.cisa_tools.title">CISA Free Cybersecurity Tools</h3>
+                                <span class="resource-type">Tools</span>
+                            </div>
+                            <p class="resource-description" data-i18n="resources.sections.government.cisa_tools.description">Free cybersecurity services and tools provided by CISA, including vulnerability scanning, phishing simulations, and security assessments.</p>
+                            <div class="resource-features">
+                                <span class="feature-tag">Free Tools</span>
+                                <span class="feature-tag">Vulnerability Scanning</span>
+                                <span class="feature-tag">Assessments</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="https://www.cisa.gov/resources-tools/resources/free-cybersecurity-services-and-tools" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    View Tools
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M18 13V19A2 2 0 0116 21H5A2 2 0 013 19V8A2 2 0 015 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <button class="quick-scan-btn" data-summary="Collection of free cybersecurity tools and services from CISA including network scanning, training materials, and incident response resources.">
+                                    Quick Scan
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-header">
+                                <h3 data-i18n="resources.sections.government.nist.title">NIST Cybersecurity Framework</h3>
+                                <span class="resource-type">Framework</span>
+                            </div>
+                            <p class="resource-description" data-i18n="resources.sections.government.nist.description">The National Institute of Standards and Technology's comprehensive cybersecurity framework, providing standards and guidelines for managing cybersecurity risk.</p>
+                            <div class="resource-features">
+                                <span class="feature-tag">Standards</span>
+                                <span class="feature-tag">Risk Management</span>
+                                <span class="feature-tag">Enterprise</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="https://www.nist.gov/topics/cybersecurity-framework" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    View Framework
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M18 13V19A2 2 0 0116 21H5A2 2 0 013 19V8A2 2 0 015 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <button class="quick-scan-btn" data-summary="Comprehensive cybersecurity framework providing standards, guidelines, and best practices for identifying, protecting, detecting, responding to, and recovering from cyber threats.">
+                                    Quick Scan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Organizations -->
+                <div class="resource-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="category-info">
+                            <h2 data-i18n="resources.sections.organizations.title">Security Organizations & Guides</h2>
+                            <p data-i18n="resources.sections.organizations.description">Expert resources from leading cybersecurity organizations</p>
+                        </div>
+                    </div>
+
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <div class="resource-header">
+                                <h3 data-i18n="resources.sections.organizations.owasp.title">OWASP Top 10</h3>
+                                <span class="resource-type">Web Security</span>
+                            </div>
+                            <p class="resource-description" data-i18n="resources.sections.organizations.owasp.description">The Open Web Application Security Project's list of the top 10 most critical web application security risks, updated regularly to reflect current threats.</p>
+                            <div class="resource-features">
+                                <span class="feature-tag">Web Security</span>
+                                <span class="feature-tag">Developer Focused</span>
+                                <span class="feature-tag">Open Source</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    View OWASP Top 10
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M18 13V19A2 2 0 0116 21H5A2 2 0 013 19V8A2 2 0 015 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <button class="quick-scan-btn" data-summary="Authoritative list of the most critical web application security risks, providing detailed explanations and prevention guidance for developers and security professionals.">
+                                    Quick Scan
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-header">
+                                <h3 data-i18n="resources.sections.organizations.eff.title">EFF Surveillance Self-Defense</h3>
+                                <span class="resource-type">Privacy</span>
+                            </div>
+                            <p class="resource-description" data-i18n="resources.sections.organizations.eff.description">The Electronic Frontier Foundation's comprehensive guide to defending yourself and your friends from surveillance by using secure technology and developing careful practices.</p>
+                            <div class="resource-features">
+                                <span class="feature-tag">Privacy</span>
+                                <span class="feature-tag">Digital Rights</span>
+                                <span class="feature-tag">Step-by-Step</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="https://ssd.eff.org/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    View SSD Guide
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M18 13V19A2 2 0 0116 21H5A2 2 0 013 19V8A2 2 0 015 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <button class="quick-scan-btn" data-summary="Detailed privacy and security guides covering secure communications, device protection, and digital privacy practices for activists, journalists, and everyday users.">
+                                    Quick Scan
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-header">
+                                <h3 data-i18n="resources.sections.organizations.phishing.title">Phishing.org Resources</h3>
+                                <span class="resource-type">Education</span>
+                            </div>
+                            <p class="resource-description" data-i18n="resources.sections.organizations.phishing.description">Educational resources and tools to help identify and prevent phishing attacks, including training materials and awareness programs.</p>
+                            <div class="resource-features">
+                                <span class="feature-tag">Phishing Prevention</span>
+                                <span class="feature-tag">Training</span>
+                                <span class="feature-tag">Awareness</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="https://www.phishing.org/phishing-resources" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    View Resources
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M18 13V19A2 2 0 0116 21H5A2 2 0 013 19V8A2 2 0 015 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <button class="quick-scan-btn" data-summary="Comprehensive anti-phishing resources including educational materials, awareness campaigns, and tools to help individuals and organizations combat phishing attacks.">
+                                    Quick Scan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Tools -->
+                <div class="resource-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M14.7 6.3A1 1 0 0015 5V3A1 1 0 0016 2H22A1 1 0 0023 3V5A1 1 0 0023.3 5.7L20 9L23.3 12.3A1 1 0 0023 13V15A1 1 0 0022 16H16A1 1 0 0015 15V13A1 1 0 0015.3 12.3L18.6 9L15.3 5.7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <rect x="3" y="8" width="6" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+                                <rect x="3" y="16" width="6" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="category-info">
+                            <h2 data-i18n="resources.sections.tools.title">Security Tools & Checkers</h2>
+                            <p data-i18n="resources.sections.tools.description">Practical tools to check your security and protect your data</p>
+                        </div>
+                    </div>
+
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <div class="resource-header">
+                                <h3 data-i18n="resources.sections.tools.hibp.title">Have I Been Pwned</h3>
+                                <span class="resource-type">Breach Checker</span>
+                            </div>
+                            <p class="resource-description" data-i18n="resources.sections.tools.hibp.description">Check if your email address or password has been compromised in a data breach. Maintained by security researcher Troy Hunt with data from major breaches.</p>
+                            <div class="resource-features">
+                                <span class="feature-tag">Breach Detection</span>
+                                <span class="feature-tag">Free</span>
+                                <span class="feature-tag">Privacy-Focused</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    Check Breaches
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M18 13V19A2 2 0 0116 21H5A2 2 0 013 19V8A2 2 0 015 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <button class="quick-scan-btn" data-summary="Free service to check if your email or password has been exposed in data breaches. Includes breach notifications and password checking via API.">
+                                    Quick Scan
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-header">
+                                <h3 data-i18n="resources.sections.tools.google_safety.title">Google Safety Center</h3>
+                                <span class="resource-type">Account Security</span>
+                            </div>
+                            <p class="resource-description" data-i18n="resources.sections.tools.google_safety.description">Google's comprehensive security and privacy resources, including account security tools, privacy checkups, and guidance for staying safe online.</p>
+                            <div class="resource-features">
+                                <span class="feature-tag">Account Security</span>
+                                <span class="feature-tag">Privacy Tools</span>
+                                <span class="feature-tag">User-Friendly</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="https://safety.google/security-privacy/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    Visit Safety Center
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M18 13V19A2 2 0 0116 21H5A2 2 0 013 19V8A2 2 0 015 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <button class="quick-scan-btn" data-summary="Comprehensive security and privacy tools from Google including security checkups, privacy controls, and guidance for protecting your accounts and data.">
+                                    Quick Scan
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-header">
+                                <h3 data-i18n="resources.sections.tools.google_advanced.title">Google Advanced Protection</h3>
+                                <span class="resource-type">High Security</span>
+                            </div>
+                            <p class="resource-description" data-i18n="resources.sections.tools.google_advanced.description">Google's strongest security protections for users who face elevated online threats, including journalists, activists, business leaders, and political campaign teams.</p>
+                            <div class="resource-features">
+                                <span class="feature-tag">High Security</span>
+                                <span class="feature-tag">Hardware Keys</span>
+                                <span class="feature-tag">Enhanced Protection</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="https://landing.google.com/advancedprotection/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    Learn More
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M18 13V19A2 2 0 0116 21H5A2 2 0 013 19V8A2 2 0 015 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <button class="quick-scan-btn" data-summary="Google's highest level of account security using hardware security keys, enhanced safe browsing, and restricted app access for high-risk users.">
+                                    Quick Scan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News & Research -->
+                <div class="resource-category">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 22H20A2 2 0 0022 20V4A2 2 0 0020 2H8A2 2 0 006 4V16L4 18V22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="10" y1="6" x2="18" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="10" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="10" y1="14" x2="18" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="category-info">
+                            <h2 data-i18n="resources.sections.news.title">Security News & Research</h2>
+                            <p data-i18n="resources.sections.news.description">Stay informed with the latest cybersecurity news and research</p>
+                        </div>
+                    </div>
+
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <div class="resource-header">
+                                <h3 data-i18n="resources.sections.news.krebs.title">KrebsOnSecurity</h3>
+                                <span class="resource-type">News</span>
+                            </div>
+                            <p class="resource-description" data-i18n="resources.sections.news.krebs.description">Investigative cybersecurity journalism by Brian Krebs, covering the latest threats, data breaches, and cybercrime investigations with in-depth analysis.</p>
+                            <div class="resource-features">
+                                <span class="feature-tag">Investigative</span>
+                                <span class="feature-tag">Breaking News</span>
+                                <span class="feature-tag">Expert Analysis</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="https://krebsonsecurity.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    Read News
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M18 13V19A2 2 0 0116 21H5A2 2 0 013 19V8A2 2 0 015 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <button class="quick-scan-btn" data-summary="Leading cybersecurity journalism covering data breaches, cybercrime investigations, and security vulnerabilities with detailed technical analysis and practical advice.">
+                                    Quick Scan
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-header">
+                                <h3 data-i18n="resources.sections.news.cisa_awareness.title">CISA Cybersecurity Awareness</h3>
+                                <span class="resource-type">Education</span>
+                            </div>
+                            <p class="resource-description" data-i18n="resources.sections.news.cisa_awareness.description">CISA's cybersecurity awareness program providing educational resources, training materials, and campaigns to improve cybersecurity awareness nationwide.</p>
+                            <div class="resource-features">
+                                <span class="feature-tag">Awareness</span>
+                                <span class="feature-tag">Training</span>
+                                <span class="feature-tag">Campaigns</span>
+                            </div>
+                            <div class="resource-actions">
+                                <a href="https://www.cisa.gov/resources-tools/programs/cisa-cybersecurity-awareness-program" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                    View Program
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M18 13V19A2 2 0 0116 21H5A2 2 0 013 19V8A2 2 0 015 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                <button class="quick-scan-btn" data-summary="National cybersecurity awareness program with educational resources, training materials, and public awareness campaigns for individuals and organizations.">
+                                    Quick Scan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-i18n="resources.cta.title">Need Help Getting Started?</h2>
+                <p data-i18n="resources.cta.description">Check out our prevention guide for a step-by-step approach to securing your digital life.</p>
+                <a href="prevention.html" class="btn btn-primary" data-i18n="resources.cta.button">View Prevention Guide</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Quick Scan Modal -->
+    <div class="modal" id="quickScanModal" aria-hidden="true">
+        <div class="modal-backdrop" aria-hidden="true"></div>
+        <div class="modal-content" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+            <div class="modal-header">
+                <h3 id="modalTitle">Quick Scan</h3>
+                <button class="modal-close" aria-label="Close modal">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-i18n="footer.quick_links">Quick Links</h3>
+                    <nav aria-label="Footer navigation">
+                        <a href="threats.html" data-i18n="nav.threats">Common Threats</a>
+                        <a href="prevention.html" data-i18n="nav.prevention">Protection Guide</a>
+                        <a href="resources.html" data-i18n="nav.resources">Tools & Resources</a>
+                        <a href="about.html" data-i18n="nav.about">About This Site</a>
+                    </nav>
+                </div>
+
+                <div class="footer-section">
+                    <h3 data-i18n="footer.sources_credits">Sources & Credits</h3>
+                    <nav aria-label="External resources">
+                        <a href="https://www.cisa.gov/topics/cybersecurity-best-practices" target="_blank" rel="noopener noreferrer">CISA Cybersecurity</a>
+                        <a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener noreferrer">OWASP Top 10</a>
+                        <a href="https://ssd.eff.org/" target="_blank" rel="noopener noreferrer">EFF Privacy Guides</a>
+                        <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">Have I Been Pwned</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Digital Safety Hub. <span data-i18n="footer.copyright">Educational content for cybersecurity awareness.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="12" y1="19" x2="12" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="5,12 12,5 19,12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="anime.min.js"></script>
+    <script src="translations.js"></script>
+    <script src="main.js"></script>
+    <script src="resources.js"></script>
+</body>
+</html>

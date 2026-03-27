@@ -1,0 +1,414 @@
+/* Prevention Page Specific Styles */
+
+.prevention-checklist {
+    padding: var(--space-20) 0;
+}
+
+.checklist-progress {
+    text-align: center;
+    margin-bottom: var(--space-16);
+    padding: var(--space-8);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.checklist-progress h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-6);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: var(--gray-200);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: var(--space-4);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--primary-color) 100%);
+    border-radius: var(--radius-md);
+    transition: width var(--transition-slow);
+    width: 0%;
+}
+
+.progress-text {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Prevention Categories */
+.prevention-categories {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.category-section {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: var(--space-8);
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.category-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--primary-color);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.category-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.category-info h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.category-info p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Checklist Items */
+.checklist-items {
+    padding: 0;
+}
+
+.checklist-item {
+    border-bottom: 1px solid var(--gray-100);
+    transition: background-color var(--transition-fast);
+}
+
+.checklist-item:last-child {
+    border-bottom: none;
+}
+
+.checklist-item:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.checklist-label {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-5);
+    cursor: pointer;
+    position: relative;
+    flex-grow: 1;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.checklist-checkbox {
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
+}
+
+.checkmark {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+    margin-top: var(--space-1);
+}
+
+.checkmark::after {
+    content: "";
+    width: 6px;
+    height: 10px;
+    border: solid var(--white);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    transition: transform var(--transition-fast);
+}
+
+.checklist-checkbox:checked + .checkmark {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.checklist-checkbox:checked + .checkmark::after {
+    transform: rotate(45deg) scale(1);
+}
+
+.checklist-checkbox:focus + .checkmark {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.item-text {
+    flex-grow: 1;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.checklist-checkbox:checked ~ .item-text {
+    color: var(--text-secondary);
+    text-decoration: line-through;
+}
+
+.info-toggle {
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    margin-left: var(--space-2);
+    flex-shrink: 0;
+    margin-top: var(--space-1);
+}
+
+.info-toggle:hover {
+    background: var(--gray-100);
+    color: var(--primary-color);
+}
+
+.info-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+.item-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow);
+    padding: 0 var(--space-5);
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+}
+
+.item-details.expanded {
+    max-height: 300px;
+    padding: var(--space-4) var(--space-5);
+}
+
+.item-details p {
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: var(--space-3);
+}
+
+.item-details a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.item-details a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Completion Celebration */
+.completion-celebration {
+    text-align: center;
+    padding: var(--space-8);
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+    border-radius: var(--radius-xl);
+    color: var(--white);
+    margin-top: var(--space-8);
+    box-shadow: var(--shadow-xl);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all var(--transition-slow);
+}
+
+.completion-celebration.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.celebration-content h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+}
+
+.celebration-content p {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-6);
+    opacity: 0.9;
+}
+
+/* Confetti Animation */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.confetti:nth-child(2) { background: var(--primary-color); }
+.confetti:nth-child(3) { background: var(--warning-color); }
+.confetti:nth-child(4) { background: var(--danger-color); }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .prevention-categories {
+        margin: 0 var(--space-4);
+    }
+
+    .category-header {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-3);
+    }
+
+    .category-icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    .category-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .checklist-label {
+        padding: var(--space-4);
+        gap: var(--space-3);
+    }
+
+    .item-details.expanded {
+        padding: var(--space-3) var(--space-4);
+    }
+}
+
+@media (max-width: 480px) {
+    .checklist-progress {
+        margin-bottom: var(--space-12);
+        padding: var(--space-6);
+    }
+
+    .checklist-progress h2 {
+        font-size: var(--font-size-xl);
+    }
+
+    .category-section {
+        margin-bottom: var(--space-6);
+    }
+
+    .category-header {
+        padding: var(--space-4);
+    }
+
+    .checklist-label {
+        padding: var(--space-3);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+
+    .checkmark {
+        order: -1;
+    }
+
+    .info-toggle {
+        align-self: flex-end;
+        margin-top: var(--space-2);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .completion-celebration {
+        display: none !important;
+    }
+
+    .info-toggle {
+        display: none;
+    }
+
+    .item-details {
+        max-height: none !important;
+        overflow: visible !important;
+        padding: var(--space-2) var(--space-5) !important;
+    }
+
+    .checklist-item {
+        break-inside: avoid;
+    }
+
+    .category-section {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--gray-400);
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .checkmark {
+        border: 2px solid var(--gray-900);
+    }
+
+    .checklist-checkbox:checked + .checkmark {
+        background: var(--gray-900);
+        border-color: var(--primary-color);
+    }
+
+    .completion-celebration {
+        background: var(--gray-900);
+        color: var(--white);
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .progress-fill,
+    .checkmark,
+    .item-details,
+    .completion-celebration {
+        transition: none;
+    }
+
+    .confetti {
+        display: none;
+    }
+}
