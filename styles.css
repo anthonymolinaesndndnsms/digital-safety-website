@@ -1601,24 +1601,56 @@ body::before {
 }
 
 /* ==========================================
-   SCROLL REVEAL — CSS-only, GPU compositor
+   SCROLL REVEAL — pre-hidden before first paint
+   The inline <script> in <head> adds 'js-ready' to <html> synchronously,
+   so these rules apply before any body content is rendered.
+   JS only needs to add .sr-visible when elements scroll into view.
    ========================================== */
-.sr-reveal {
+
+/* Cards & content blocks */
+.js-ready .feature-card,
+.js-ready .principle-card,
+.js-ready .content-section,
+.js-ready .disclaimer-item,
+.js-ready .threat-card,
+.js-ready .step-card,
+.js-ready .resource-card {
     opacity: 0;
     transform: translateY(28px);
-    /* Only transition opacity + transform — both compositor-only, zero layout cost */
     transition: opacity 0.6s cubic-bezier(0.2, 0, 0, 1),
                 transform 0.6s cubic-bezier(0.2, 0, 0, 1);
 }
 
-.sr-reveal.sr-visible {
-    opacity: 1;
-    transform: none;
+/* Titles */
+.js-ready .section-title,
+.js-ready .page-title,
+.js-ready .page-description,
+.js-ready .section-description {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s cubic-bezier(0.2, 0, 0, 1),
+                transform 0.5s cubic-bezier(0.2, 0, 0, 1);
 }
 
-/* Respect reduced motion */
+/* Revealed state — wins over the hiding rules above */
+.sr-visible {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* If JS never ran (no js-ready class), content stays visible */
 @media (prefers-reduced-motion: reduce) {
-    .sr-reveal {
+    .js-ready .feature-card,
+    .js-ready .principle-card,
+    .js-ready .content-section,
+    .js-ready .disclaimer-item,
+    .js-ready .threat-card,
+    .js-ready .step-card,
+    .js-ready .resource-card,
+    .js-ready .section-title,
+    .js-ready .page-title,
+    .js-ready .page-description,
+    .js-ready .section-description {
         opacity: 1;
         transform: none;
         transition: none;

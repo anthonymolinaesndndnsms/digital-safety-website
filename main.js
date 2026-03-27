@@ -113,37 +113,35 @@
         }
     }
 
-    // Scroll reveals: CSS transitions + IntersectionObserver
-    // This runs on the GPU compositor thread — no JS per frame, no lag
+    // Scroll reveals — CSS hides elements before first paint (via .js-ready in <head>),
+    // JS just adds .sr-visible when each element scrolls into view.
     function initializeScrollAnimations() {
-        var toReveal = document.querySelectorAll(
+        var toReveal = Array.from(document.querySelectorAll(
             '.feature-card, .principle-card, .content-section, .disclaimer-item, ' +
             '.threat-card, .step-card, .resource-card, ' +
             '.section-title, .page-title, .page-description, .section-description'
-        );
+        ));
 
-        // Assign stagger delay based on sibling index (so grid cards fan in)
+        // Stagger: siblings of the same type within the same parent fan in sequentially
         toReveal.forEach(function(el) {
-            var siblings = el.parentElement
-                ? Array.from(el.parentElement.querySelectorAll(el.tagName + ', [class="' + el.className.split(' ')[0] + '"]'))
-                : [];
-            var idx = siblings.indexOf(el);
-            el.classList.add('sr-reveal');
-            if (idx > 0 && idx <= 4) el.style.transitionDelay = (idx * 0.08) + 's';
+            if (!el.parentElement) return;
+            var sameSiblings = toReveal.filter(function(s) {
+                return s.parentElement === el.parentElement;
+            });
+            var idx = sameSiblings.indexOf(el);
+            if (idx > 0) el.style.transitionDelay = Math.min(idx * 0.09, 0.36) + 's';
         });
 
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('sr-visible');
-                    observer.unobserve(entry.target);
-                    // Clear delay after animation so hover/etc. aren't delayed
-                    setTimeout(function() {
-                        entry.target.style.transitionDelay = '';
-                    }, 800);
-                }
+                if (!entry.isIntersecting) return;
+                var el = entry.target;
+                el.classList.add('sr-visible');
+                observer.unobserve(el);
+                // Clear the stagger delay so later interactions (hover etc.) aren't delayed
+                setTimeout(function() { el.style.transitionDelay = ''; }, 700);
             });
-        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+        }, { threshold: 0.07, rootMargin: '0px 0px -20px 0px' });
 
         toReveal.forEach(function(el) { observer.observe(el); });
     }
