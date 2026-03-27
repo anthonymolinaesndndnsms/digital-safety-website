@@ -29,7 +29,9 @@
             var particles = [];
             var animFrame;
             var isRunning = true;
-            var symbols = ['◈', '⬡', '◇', '01', '10', '11', '⊕', '△', '◻', '00', '1010', '0101'];
+            var lastFrame = 0;
+            var FRAME_MS = 1000 / 24; // cap at 24fps — smooth enough, much cheaper
+            var symbols = ['◈', '⬡', '◇', '01', '10', '⊕', '△', '◻', '00'];
             var colors = ['#00FF88', '#1E90FF', '#FF0066'];
             var W = 0, H = 0;
 
@@ -53,11 +55,18 @@
                 };
             }
 
-            function tick() {
+            function tick(timestamp) {
                 if (!isRunning) return;
+                animFrame = requestAnimationFrame(tick);
+
+                // Throttle to ~24fps
+                var delta = timestamp - lastFrame;
+                if (delta < FRAME_MS) return;
+                lastFrame = timestamp - (delta % FRAME_MS);
+
                 ctx.clearRect(0, 0, W, H);
 
-                if (particles.length < 20 && Math.random() < 0.055) {
+                if (particles.length < 14 && Math.random() < 0.04) {
                     particles.push(spawn());
                 }
 
@@ -79,7 +88,6 @@
                     ctx.restore();
                 });
 
-                animFrame = requestAnimationFrame(tick);
             }
 
             resize();
@@ -88,7 +96,7 @@
                 clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(resize, 150);
             }, { passive: true });
-            tick();
+            requestAnimationFrame(tick);
 
             document.addEventListener('visibilitychange', function () {
                 if (document.hidden) {

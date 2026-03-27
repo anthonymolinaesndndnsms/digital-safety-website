@@ -6,7 +6,6 @@
 
     // Wait for DOM content to load
     document.addEventListener('DOMContentLoaded', function() {
-        initializeSmoothScroll();
         initializeNavigation();
         initializeBackToTop();
         initializeScrollAnimations();
@@ -94,11 +93,7 @@
             // Smooth scroll to top
             backToTopBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                if (window._lenisInstance) {
-                    window._lenisInstance.scrollTo(0, { duration: 1.2 });
-                } else {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
             // Optimized scroll listener with requestAnimationFrame
@@ -118,110 +113,39 @@
         }
     }
 
-    // Lenis smooth scroll — must run before ScrollTrigger
-    function initializeSmoothScroll() {
-        if (!window.Lenis) return;
-
-        var lenis = new Lenis({
-            duration: 1.1,
-            easing: function(t) { return 1 - Math.pow(1 - t, 4); },
-            smoothTouch: false,
-            syncTouch: false
-        });
-
-        // Use gsap ticker so Lenis + ScrollTrigger stay in sync
-        if (window.gsap) {
-            gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
-            gsap.ticker.lagSmoothing(0);
-            if (window.ScrollTrigger) {
-                lenis.on('scroll', ScrollTrigger.update);
-            }
-        } else {
-            // Fallback raf loop without gsap
-            function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-            requestAnimationFrame(raf);
-        }
-
-        // Make back-to-top use Lenis
-        window._lenisInstance = lenis;
-    }
-
-    // Scroll-based animations using GSAP ScrollTrigger
+    // Scroll reveals: CSS transitions + IntersectionObserver
+    // This runs on the GPU compositor thread — no JS per frame, no lag
     function initializeScrollAnimations() {
-        if (window.gsap && window.ScrollTrigger) {
-            gsap.registerPlugin(ScrollTrigger);
-
-            // --- Pre-hide everything FIRST (synchronous, before any paint) ---
-            var allReveal = document.querySelectorAll(
-                '.feature-card, .principle-card, .content-section, .disclaimer-item, ' +
-                '.threat-card, .step-card, .resource-card'
-            );
-            var allTitles = document.querySelectorAll(
-                '.section-title, .page-title, .page-description, .section-description'
-            );
-
-            gsap.set(allReveal, { opacity: 0, y: 38, force3D: true });
-            gsap.set(allTitles, { opacity: 0, y: 18, force3D: true });
-
-            // --- Animate each card individually when it enters the viewport ---
-            allReveal.forEach(function(el, i) {
-                // Group siblings for stagger: delay based on position among siblings
-                var siblings = el.parentElement ? Array.from(el.parentElement.children) : [];
-                var sibIndex = siblings.indexOf(el);
-
-                gsap.to(el, {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.65,
-                    ease: 'power2.out',
-                    delay: sibIndex * 0.07,
-                    force3D: true,
-                    scrollTrigger: {
-                        trigger: el,
-                        start: 'top 92%',
-                        toggleActions: 'play none none none'
-                    }
-                });
-            });
-
-            // --- Titles slide in ---
-            allTitles.forEach(function(el) {
-                gsap.to(el, {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.55,
-                    ease: 'power2.out',
-                    force3D: true,
-                    scrollTrigger: {
-                        trigger: el,
-                        start: 'top 93%',
-                        toggleActions: 'play none none none'
-                    }
-                });
-            });
-
-            return;
-        }
-
-        // CSS-only fallback (no GSAP): pre-hide with inline style then reveal via observer
         var toReveal = document.querySelectorAll(
-            '.feature-card,.section-title,.principle-card,.threat-card,.step-card,.resource-card'
+            '.feature-card, .principle-card, .content-section, .disclaimer-item, ' +
+            '.threat-card, .step-card, .resource-card, ' +
+            '.section-title, .page-title, .page-description, .section-description'
         );
+
+        // Assign stagger delay based on sibling index (so grid cards fan in)
         toReveal.forEach(function(el) {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(28px)';
-            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            var siblings = el.parentElement
+                ? Array.from(el.parentElement.querySelectorAll(el.tagName + ', [class="' + el.className.split(' ')[0] + '"]'))
+                : [];
+            var idx = siblings.indexOf(el);
+            el.classList.add('sr-reveal');
+            if (idx > 0 && idx <= 4) el.style.transitionDelay = (idx * 0.08) + 's';
         });
-        var obs = new IntersectionObserver(function(entries) {
-            entries.forEach(function(e) {
-                if (e.isIntersecting) {
-                    e.target.style.opacity = '1';
-                    e.target.style.transform = 'none';
-                    obs.unobserve(e.target);
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('sr-visible');
+                    observer.unobserve(entry.target);
+                    // Clear delay after animation so hover/etc. aren't delayed
+                    setTimeout(function() {
+                        entry.target.style.transitionDelay = '';
+                    }, 800);
                 }
             });
-        }, { threshold: 0.08 });
-        toReveal.forEach(function(el) { obs.observe(el); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+        toReveal.forEach(function(el) { observer.observe(el); });
     }
 
     // Animate individual elements

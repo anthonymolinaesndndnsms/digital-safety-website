@@ -753,8 +753,8 @@ body {
 }
 
 @keyframes cyber-pulse {
-    0% { left: -100%; }
-    100% { left: 100%; }
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
 }
 
 .cyber-border {
@@ -1504,12 +1504,10 @@ body {
     opacity: 0.7;
 }
 
-/* Security items in hero: better glass look */
+/* Security items in hero: clean dark look (backdrop-filter removed — expensive) */
 .security-item {
-    background: rgba(10, 10, 10, 0.7) !important;
+    background: rgba(10, 10, 10, 0.85) !important;
     border: 1px solid rgba(0, 255, 136, 0.18) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
 }
 
@@ -1600,4 +1598,29 @@ body::before {
     background: linear-gradient(90deg, transparent 0%, var(--primary-color) 30%, var(--secondary-color) 70%, transparent 100%);
     opacity: 0.5;
 }
+}
+
+/* ==========================================
+   SCROLL REVEAL — CSS-only, GPU compositor
+   ========================================== */
+.sr-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    /* Only transition opacity + transform — both compositor-only, zero layout cost */
+    transition: opacity 0.6s cubic-bezier(0.2, 0, 0, 1),
+                transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.sr-reveal.sr-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .sr-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
